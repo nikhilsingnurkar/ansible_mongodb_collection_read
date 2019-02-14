@@ -1,0 +1,20 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: read data from mongodb
+      shell: mongo Advantage --quiet --eval="printjson(db.getSiblingDB('ilo').getCollection('ilocollection').find())" 
+      register: mongo_output
+
+    - debug: var=mongo_output.stdout
+
+#    - name: read mongo using curl
+#      shell: curl http://34.201.106.146:27080/ilo/ilocollection/_find
+#      register: curl_output
+
+    - name: Save parsed data
+      set_fact:
+        mongo_result: "{{ mongo_output.stdout | from_json }}" 
+
+    - debug: var=mongo_results

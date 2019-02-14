@@ -1,0 +1,20 @@
+- hosts: all
+  gather_facts: false
+  vars:
+    mongodb_parameters:
+      #mandatory parameters
+      database: 'ilo'
+      #optional
+      collection: "ilocollection"
+      connection_string: "mongodb://localhost"
+      #optional query  parameters, we accept any parameter from the normal mongodb query.
+      projection: { "ilo_ip": True    , "ilo_user" : True , "ilo_password" : True }
+  tasks:
+    - set_fact:
+        entry: "{{ lookup('mongodb', mongodb_parameters) }}"
+#    - debug: msg="ilo_ip [{{ entry.ilo_ip }}] ilo_ip [{{ entry.ilo_user }}] ilo_ip [{{ entry.ilo_password }}]"
+#      with_mongodb: "{{ mongodb_parameters }}"
+#    - debug: var=entry
+  
+    - debug: msg=" address {{ item.ilo_ip }} username {{ item.ilo_user }} password {{ item.ilo_password }} "
+      with_items: "{{ entry }}"

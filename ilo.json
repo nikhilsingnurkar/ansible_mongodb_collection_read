@@ -1,0 +1,9 @@
+[
+    { "ilo_ip": "172.30.3.112", "ilo_user": "testuser", "ilo_password": "w7TNWtdZE" },
+    { "ilo_ip": "172.30.3.113", "ilo_user": "testuser", "ilo_password": "yPoMn2i3" },
+    { "ilo_ip": "172.30.3.114", "ilo_user": "testuser", "ilo_password": "dq7ZsvJM" },
+    { "ilo_ip": "172.30.3.115", "ilo_user": "testuser", "ilo_password": "6MlnJYLFiq5" },
+    { "ilo_ip": "172.30.3.116", "ilo_user": "testuser", "ilo_password": "0imfJUE42X" },
+    { "ilo_ip": "172.30.3.117", "ilo_user": "testuser", "ilo_password": "OUlruyA9|" }
+
+]
